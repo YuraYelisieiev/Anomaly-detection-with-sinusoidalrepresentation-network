@@ -1,0 +1,28 @@
+data:
+    train_dir: /home/yyelisieiev/luftr_data/SoftClass2Rotated/train
+    val_dir: /home/yyelisieiev/luftr_data/SoftClass2Rotated/val
+    batch_size: 32
+    data_set: RivetsAnnoAutoEncoder
+    image_size: 80
+    after_crop_size: 64
+    center_resolution: 32
+    image_type: Corrupted
+
+
+model:
+    steps_till_summary: 100
+    generator:
+        activation: sine
+        mode: mlp
+        in_features: 514
+        hidden_layers: 3
+        hidden_features: 512
+        loss_w: 10
+        mse_weight: 100
+        perc_weight: 0.01
+        gram_weight: 0.1
+        learning_rate: 0.000005
+
+    discriminator:
+        loss_w: 1
+        learning_rate: 0.00001
